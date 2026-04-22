@@ -4,6 +4,7 @@ from app.dto.request.weatherRequest import WeatherRequest
 from app.dto.response.weatherResponse import WeatherResponse
 from app.entities.weatherEntity import WeatherEntity
 from sqlalchemy.orm import Session
+from datetime import date 
 
 class WeatherService:
 
@@ -12,6 +13,10 @@ class WeatherService:
         self.client = client
 
     def get_weather(self, db: Session, request: WeatherRequest)-> WeatherResponse:
+        #Validacion de la fecha
+        if request.date is None:
+            request.date = date.today()
+
         #primero busca en db
         weather_entity = self.repository.search_by_city_and_date(db, request)
 
