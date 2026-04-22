@@ -1,7 +1,8 @@
 from fastapi import FastAPI
-from pydantic import BaseModel
+from app.controllers.weatherController import router
 
 app = FastAPI()
+app.include_router(router)
 
 @app.get("/")
 def read_root():
