@@ -4,6 +4,7 @@ from typing import Optional
 
 class WeatherRequest(BaseModel):
     ciudad: str
+    pais: str
     date: Optional[date_type] = None
 
     @field_validator("date")

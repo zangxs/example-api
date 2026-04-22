@@ -11,6 +11,7 @@ class WeatherRepository:
         #TODO aca hacer la query a db
         stmt = select(WeatherEntity).where(
             WeatherEntity.ciudad == request.ciudad,
+            WeatherEntity.pais == request.pais,
             WeatherEntity.date == request.date
         )
 
