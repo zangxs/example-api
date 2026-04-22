@@ -1,8 +1,8 @@
 from fastapi import APIRouter
-from schemas import WeatherRequest
+from app.dto.request.weatherRequest import WeatherRequest
 
 router = APIRouter()
 
 @router.post("/weather")
 def get_weather(request: WeatherRequest):  # FastAPI lee el type hint y sabe que es body
-    return {"ciudad": request.ciudad}
+    return {"ciudad": "mi ciudad es " + request.ciudad}
